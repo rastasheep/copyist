@@ -5,4 +5,4 @@ threadsafe: true
 
 handlers:
 - url: /.*
-  script: parser.app
+  script: copyist.app
