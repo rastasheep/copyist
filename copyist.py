@@ -1,6 +1,8 @@
 import logging
 import webapp2
+from gose_configuration import GoseConfiguration
 from webapp2_extras import json
+from goose import Goose
 
 class BaseHandler(webapp2.RequestHandler):
     def __init__(self, request, response):
@@ -15,7 +17,7 @@ class BaseHandler(webapp2.RequestHandler):
     def handle_exception(self, exception, debug):
         logging.exception(exception)
 
-        response.write(json.encode({'message':'Ad error occurred, try again later.'}))
+        self.response.write(json.encode({'message':'Ad error occurred, try again later.'}))
 
         # If the exception is a HTTPException, use its error code.
         if isinstance(exception, webapp2.HTTPException):
@@ -26,10 +28,11 @@ class BaseHandler(webapp2.RequestHandler):
 class ApiV1(BaseHandler):
     def get(self):
         url = self.request.get('url')
+        g = Goose(GoseConfiguration())
 
         if url:
-            obj = {'url': url, 'payload': 'some var'}
-            return self.response.write(json.encode(obj))
+            article = g.extract(url=url)
+            return self.response.write(json.encode(article.infos))
 
         BaseHandler.handle_not_found(self.request, self.response, None)
 

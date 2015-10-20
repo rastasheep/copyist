@@ -10,3 +10,5 @@ handlers:
 libraries:
   - name: lxml
     version: "latest"
+  - name: PIL
+    version: "latest"
