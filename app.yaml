@@ -6,3 +6,7 @@ threadsafe: true
 handlers:
 - url: /.*
   script: copyist.app
+
+libraries:
+  - name: lxml
+    version: "latest"

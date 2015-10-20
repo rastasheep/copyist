@@ -1,0 +1,3 @@
+lxml==2.3.5
+
+git+https://github.com/grangier/python-goose.git@master#egg=python_goose
