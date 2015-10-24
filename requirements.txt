@@ -1,3 +1,5 @@
-lxml==2.3.5
+webob==1.5.0
+webapp2==2.5.1
+paste
 
 git+git://github.com/grangier/python-goose.git@1.0.25#egg=python_goose
