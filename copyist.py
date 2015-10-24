@@ -41,7 +41,7 @@ app.error_handlers[404] = BaseHandler.handle_not_found
 
 def main():
     from paste import httpserver
-    httpserver.serve(app, host='0.0.0.0', port='3000')
+    httpserver.serve(app, host='0.0.0.0', port='80')
 
 if __name__ == '__main__':
     main()
