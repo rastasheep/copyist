@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.errorhandler(500)
 def internal_server_error(error):
-    return jsonify(message='Ad error occurred, try again later.'), 500
+    return jsonify(message='An error occurred, try again later.'), 500
 
 @app.errorhandler(404)
 def page_not_found(error):
