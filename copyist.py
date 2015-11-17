@@ -18,7 +18,7 @@ def v1():
 
     if url:
         g = Goose()
-        article = g.extract(url=url)
+        article = g.extract(url=url.encode('utf8'))
         return jsonify(article.infos), 200
     abort(404)
 

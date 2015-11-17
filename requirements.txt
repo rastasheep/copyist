@@ -1,4 +1,4 @@
 flask==0.10
 pytest
 
-git+git://github.com/grangier/python-goose.git@1.0.25#egg=python_goose
+git+git://github.com/rastasheep/python-goose.git@serbian-stopwords#egg=python_goose
