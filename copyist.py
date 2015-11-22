@@ -15,9 +15,12 @@ def page_not_found(error):
 @app.route('/v1')
 def v1():
     url = request.args.get('url', None)
+    lang = request.args.get('lang', None)
+
+    options = {'use_meta_language': False, 'target_language':lang} if lang else {}
 
     if url:
-        g = Goose()
+        g = Goose(options)
         article = g.extract(url=url.encode('utf8'))
         return jsonify(article.infos), 200
     abort(404)
