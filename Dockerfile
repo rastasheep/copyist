@@ -1,9 +1,9 @@
-FROM python:2-slim
+FROM alpine
 MAINTAINER Aleksandar Diklic <rastasheep@gmail.com>
 
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update &&  apt-get install -y git gcc libjpeg-dev zlib1g-dev libxml2-dev libxslt-dev
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apk update && apk upgrade
+RUN apk add gcc git python py-pip py-lxml py-pillow libjpeg python-dev musl-dev
+RUN rm -rf /var/cache/apk/*
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
